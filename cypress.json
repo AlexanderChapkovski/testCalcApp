@@ -1,0 +1,9 @@
+{
+  "baseUrl": "https://nuix.github.io/SDET/senior-sdet",
+  "viewportWidth": 1920,
+  "viewportHeight": 1080,
+  "env": {
+    "stagingEnv": "stagingCalc",
+    "productionEnv": "productionCalc"
+  }
+}

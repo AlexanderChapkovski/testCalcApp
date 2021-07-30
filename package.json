@@ -1,0 +1,28 @@
+{
+  "name": "testcalcapp",
+  "version": "1.0.0",
+  "description": "Nuix SDET Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test-production": "./node_modules/.bin/cypress run --browser chrome --headed ",
+    "test-production-basic-operations": "npx cypress run --browser chrome --spec cypress/integration/basic-operations.spec.js",
+    "test-production-functionality": "npx cypress run --browser chrome --spec cypress/integration/functionality.spec.js",
+    "test-staging": "./node_modules/.bin/cypress run --browser chrome --headed --env productionEnv=stagingCalc",
+    "test-staging-basic-operations": "npx cypress run --browser chrome --spec cypress/integration/basic-operations.spec.js --headed --env productionEnv=stagingCalc",
+    "test-staging-functionality": "npx cypress run --browser chrome --spec cypress/integration/functionality.spec.js --headed --env productionEnv=stagingCalc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexanderChapkovski/testCalcApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexanderChapkovski/testCalcApp/issues"
+  },
+  "homepage": "https://github.com/AlexanderChapkovski/testCalcApp#readme",
+  "devDependencies": {
+    "cypress": "^6.5.0"
+  }
+}
