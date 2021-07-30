@@ -17,5 +17,6 @@ They will begin to run in a "headfull" Chromium browser.
 Based on my tests suites, I was able to identify bugs in staging env:
 - The button '5' doesn't work properly (Actual Result: outputs '6' instead).
 - Multiplication operation doesn't work as it should be (Actual Result: outputs result more by 2).
+- Division operation where result must be decimal number outputs wrong result.
 - Any operation with decimal number outputs wrong result.
 

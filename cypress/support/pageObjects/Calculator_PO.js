@@ -5,7 +5,7 @@ class Calculator_PO {
   }
 
   visitHomePage() {
-    cy.visit("/" + Cypress.env("productionEnv"));
+    cy.visit("/" + Cypress.env("stagingEnv"));
   }
   checkResultWith(str) {
     cy.get("#display > div").should("have.text", str);

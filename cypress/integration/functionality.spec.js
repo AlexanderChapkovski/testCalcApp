@@ -45,9 +45,7 @@ describe("Verify the addition functionality", () => {
     calc.clickOnEqlBtn();
     let numberOne = Number(`0.${number1}`);
     let numberTwo = Number(`0.${number2}`);
-    let res = numberOne + numberTwo;
-    res = res === 1.0 ? (res = 1) : (res = res.toFixed(1));
-    cy.log(numberOne + numberTwo);
+    let res = (numberOne * 10 + numberTwo * 10) / 10;
     calc.checkResultWith(res);
   });
 });
@@ -93,8 +91,7 @@ describe("Verify the subtraction functionality", () => {
     calc.clickOnEqlBtn();
     let numberOne = Number(`0.${number1}`);
     let numberTwo = Number(`0.${number2}`);
-    let res = numberOne - numberTwo;
-    res = res === 1.0 ? (res = 1) : (res = res.toFixed(1));
+    let res = (numberOne * 10 - numberTwo * 10) / 10;
     calc.checkResultWith(res);
   });
 });
@@ -121,31 +118,29 @@ describe("Verify the multiplication functionality", () => {
     calc.checkResultWith(-number1 * number2);
   });
 
-  //   it("Verify the multiplication of one decimal and one integer number", () => {
-  //     calc.clickOnDotBtn();
-  //     calc.clickOnSpecificNumberBtn(number1);
-  //     calc.clickOnMultBtn();
-  //     calc.clickOnSpecificNumberBtn(number2);
-  //     calc.clickOnEqlBtn();
-  //     let numberOne = Number(`0.${number1}`);
-  //     calc.checkResultWith(numberOne * number2);
-  //   });
+  it("Verify the multiplication of one decimal and one integer number", () => {
+    calc.clickOnDotBtn();
+    calc.clickOnSpecificNumberBtn(number1);
+    calc.clickOnMultBtn();
+    calc.clickOnSpecificNumberBtn(number2);
+    calc.clickOnEqlBtn();
+    let numberOne = Number(`0.${number1}`);
+    let res = (numberOne * 10 * number2) / 10;
+    calc.checkResultWith(res);
+  });
 
-  //   it.only("Verify the multiplication of two decimal numbers", () => {
-  //     calc.clickOnDotBtn();
-  //     calc.clickOnSpecificNumberBtn(number1);
-  //     calc.clickOnMultBtn();
-  //     calc.clickOnDotBtn();
-  //     calc.clickOnSpecificNumberBtn(number2);
-  //     calc.clickOnEqlBtn();
-  //     let numberOne = Number(`0.${number1}`);
-  //     let numberTwo = Number(`0.${number2}`);
-  // 	let res = (numberOne * numberTwo).toString();
-  //     res = res.substring(0, 8);
-  //     cy.get("#display > div").then(($el) => {
-  //       expect($el.text()).include(res);
-  //     });
-  //   });
+  it("Verify the multiplication of two decimal numbers", () => {
+    calc.clickOnDotBtn();
+    calc.clickOnSpecificNumberBtn(number1);
+    calc.clickOnMultBtn();
+    calc.clickOnDotBtn();
+    calc.clickOnSpecificNumberBtn(number2);
+    calc.clickOnEqlBtn();
+    let numberOne = Number(`0.${number1}`);
+    let numberTwo = Number(`0.${number2}`);
+    let res = (numberOne * 10 * (numberTwo * 10)) / 100;
+    calc.checkResultWith(res);
+  });
 });
 
 describe("Verify the division functionality", () => {
@@ -191,33 +186,48 @@ describe("Verify the division functionality", () => {
     calc.checkResultWith(res);
   });
 
-  //   it("Verify the division of one decimal and one integer number", () => {
-  //     calc.clickOnDotBtn();
-  //     calc.clickOnSpecificNumberBtn(number1);
-  //     calc.clickOnDivisionBtn();
-  //     calc.clickOnSpecificNumberBtn(number2);
-  //     calc.clickOnEqlBtn();
-  //     let numberOne = Number(`0.${number1}`);
-  //     let res = (numberOne / number2).toString();
-  //     res = res.substring(0, 8);
-  //     cy.get("#display > div").then(($el) => {
-  //       expect($el.text()).include(res);
-  //     });
-  //   });
+  it("Verify the division of one decimal and one integer number", () => {
+    calc.clickOnDotBtn();
+    calc.clickOnSpecificNumberBtn(number1);
+    calc.clickOnDivisionBtn();
+    calc.clickOnSpecificNumberBtn(number2);
+    calc.clickOnEqlBtn();
+    let numberOne = Number(`0.${number1}`);
+    let res = (numberOne * 10) / number2 / 10;
+    const arr = res.toString().split("");
+    if (arr.length > 10) {
+      res = res.toFixed(9);
+      res = res.substring(0, res.length - 1);
+      cy.get("#display > div").then(($el) => {
+        cy.log($el.text());
+        expect($el.text()).includes(res);
+      });
+    } else {
+      calc.checkResultWith(res);
+    }
+  });
 
-  //   it("Verify the division of two decimal numbers", () => {
-  //     calc.clickOnDotBtn();
-  //     calc.clickOnSpecificNumberBtn(number1);
-  //     calc.clickOnDivisionBtn();
-  //     calc.clickOnDotBtn();
-  //     calc.clickOnSpecificNumberBtn(number2);
-  //     calc.clickOnEqlBtn();
-  //     let numberOne = Number(`0.${number1}`);
-  //     let numberTwo = Number(`0.${number2}`);
-  //     let res = (numberOne / numberTwo).toString();
-  //     res = res.substring(0, 8);
-  //     cy.get("#display > div").then(($el) => {
-  //       expect($el.text()).include(res);
-  //     });
-  //   });
+  it("Verify the division of two decimal numbers", () => {
+    calc.clickOnDotBtn();
+    calc.clickOnSpecificNumberBtn(number1);
+    calc.clickOnDivisionBtn();
+    calc.clickOnDotBtn();
+    calc.clickOnSpecificNumberBtn(number2);
+    calc.clickOnEqlBtn();
+    let numberOne = Number(`0.${number1}`);
+    let numberTwo = Number(`0.${number2}`);
+    let res = ((numberOne * 10) / (numberTwo * 10));
+	cy.log(res)
+    const arr = res.toString().split("");
+    if (arr.length > 10) {
+      res = res.toFixed(9);
+      res = res.substring(0, res.length - 1);
+      cy.get("#display > div").then(($el) => {
+        cy.log($el.text());
+        expect($el.text()).includes(res);
+      });
+    } else {
+      calc.checkResultWith(res);
+    }
+  });
 });

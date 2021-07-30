@@ -4,12 +4,12 @@
   "description": "Nuix SDET Assignment",
   "main": "index.js",
   "scripts": {
-    "test-production": "./node_modules/.bin/cypress run --browser chrome --headed ",
-    "test-production-basic-operations": "npx cypress run --browser chrome --spec cypress/integration/basic-operations.spec.js",
-    "test-production-functionality": "npx cypress run --browser chrome --spec cypress/integration/functionality.spec.js",
-    "test-staging": "./node_modules/.bin/cypress run --browser chrome --headed --env productionEnv=stagingCalc",
-    "test-staging-basic-operations": "npx cypress run --browser chrome --spec cypress/integration/basic-operations.spec.js --headed --env productionEnv=stagingCalc",
-    "test-staging-functionality": "npx cypress run --browser chrome --spec cypress/integration/functionality.spec.js --headed --env productionEnv=stagingCalc"
+    "test-production": "./node_modules/.bin/cypress run --browser chrome --headed --env stagingEnv=productionCalc",
+    "test-production-basic-operations": "npx cypress run --browser chrome --spec cypress/integration/basic-operations.spec.js --env stagingEnv=productionCalc",
+    "test-production-functionality": "npx cypress run --browser chrome --spec cypress/integration/functionality.spec.js --env stagingEnv=productionCalc",
+    "test-staging": "./node_modules/.bin/cypress run --browser chrome --headed",
+    "test-staging-basic-operations": "npx cypress run --browser chrome --spec cypress/integration/basic-operations.spec.js --headed",
+    "test-staging-functionality": "npx cypress run --browser chrome --spec cypress/integration/functionality.spec.js --headed"
   },
   "repository": {
     "type": "git",
