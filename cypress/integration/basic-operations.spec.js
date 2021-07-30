@@ -32,12 +32,6 @@ describe("Verify that all the numbers and sign buttons are working", () => {
     });
   });
 
-  it(`Verify that 'C' button works`, () => {
-    calc.clickOnAnyNumberBtn();
-    calc.clickOnCBtn();
-    calc.checkResultWith("0");
-  });
-
   it(`Verify that '-' button works`, () => {
     calc.clickOnMinusBtn();
     cy.get("#display > div").should("have.text", "-");
@@ -51,9 +45,12 @@ describe("Verify that all the numbers and sign buttons are working", () => {
     calc.checkResultWith("1");
   });
 
-  it(`Verify that '+' button works`, () => {
-    calc.clickOnMinusBtn();
-    cy.get("#display > div").should("have.text", "-");
+  it(`Verify that '+' button works`, () => {    // three operators; e+
+    calc.clickOnSpecificNumberBtn(3);
+    calc.clickOnPlusBtn();
+    calc.clickOnSpecificNumberBtn(2);
+    calc.clickOnEqlBtn();
+    calc.checkResultWith("5");
   });
 
   it(`Verify that '÷' button works`, () => {

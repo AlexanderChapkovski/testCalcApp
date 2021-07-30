@@ -1,7 +1,7 @@
 # testCalcApp Nuix SDET Assignment
 # My annotation
 - I used **Cypress** to drive the web based calculator.
-- I created folder **pageObjects** and used POM pattern to interact with app, you can find the file in `{support/pageObjects/Calculator_PO.js}`.
+- I created folder **pageObjects** and used POM pattern to interact with app, you can find the file in `support/pageObjects/Calculator_PO.js`.
 - There are some negative testing scenarios for this calc app, but we can create much more depending of requirements.
 - I  tried to cover the most common test scenarios because we can create scripts for a very long time, but we need requirements for that.
 
