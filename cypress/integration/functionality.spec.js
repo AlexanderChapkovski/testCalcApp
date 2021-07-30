@@ -9,6 +9,16 @@ describe("Verify the addition functionality", () => {
     calc.visitHomePage();
   });
 
+  it(`Verify that 'we check that more than two numbers can participate in the calculation operation`, () => {
+    calc.clickOnSpecificNumberBtn(number1);
+    calc.clickOnPlusBtn();
+    calc.clickOnSpecificNumberBtn(number1);
+    calc.clickOnPlusBtn();
+    calc.clickOnSpecificNumberBtn(number1);
+    calc.clickOnEqlBtn();
+    calc.checkResultWith(number1 * 3);
+  });
+
   it("Verify the addition of two integer numbers", () => {
     calc.clickOnSpecificNumberBtn(number1);
     calc.clickOnPlusBtn();

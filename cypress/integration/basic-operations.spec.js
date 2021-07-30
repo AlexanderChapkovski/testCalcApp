@@ -45,7 +45,7 @@ describe("Verify that all the numbers and sign buttons are working", () => {
     calc.checkResultWith("1");
   });
 
-  it(`Verify that '+' button works`, () => {    // three operators; e+
+  it(`Verify that '+' button works`, () => {
     calc.clickOnSpecificNumberBtn(3);
     calc.clickOnPlusBtn();
     calc.clickOnSpecificNumberBtn(2);
@@ -83,4 +83,5 @@ describe("Verify that all the numbers and sign buttons are working", () => {
     calc.clickOnCBtn();
     calc.checkResultWith("0");
   });
+
 });
