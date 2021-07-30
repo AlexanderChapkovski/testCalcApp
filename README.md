@@ -10,6 +10,7 @@ This project uses NodeJS( Node 14+ ) and NPM and Cypress.
 Run `npm install` to install dependencies.
 - To run the tests in production environment, run `npm run test-production` 
 - To run the tests in staging environment, run `npm run test-staging` 
+
 They will begin to run in a "headfull" Chromium browser.
 
 # Bugs
